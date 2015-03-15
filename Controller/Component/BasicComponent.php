@@ -13,13 +13,22 @@
 		public function initialize(Controller $controller) {
 
 			//Config Load
-			$simpleHttpConfig = Configure::read('SimpleHttpAuth.Config');
+			$config = Configure::read('SimpleHttpAuth.Config');
+			$env = Configure::read('SimpleHttpAuth.Environment');
 
-			if (array_key_exists(env('DEVELOP_ENV'),$simpleHttpConfig)){
+			if (empty($env)){
+				$env = env('DEVELOP_ENV');
+			}
 
-				if (!empty($simpleHttpConfig[env('DEVELOP_ENV')]['user']) && !empty($simpleHttpConfig[env('DEVELOP_ENV')]['password'])){
+			if (array_key_exists('all',$config)) {
+				$env = 'all';
+			}
 
-					$matchData = $this->_emptyCheck($simpleHttpConfig[env('DEVELOP_ENV')]);
+			if (array_key_exists($env,$config)){
+
+				if (!empty($config[$env]['user']) && !empty($config[$env]['password'])){
+
+					$matchData = $this->_emptyCheck($config[$env]);
 					$this->autoRender = false;
 					if (!isset($_SERVER['PHP_AUTH_USER'])) {
 						header('Content-type: text/html; charset='.mb_internal_encoding());
