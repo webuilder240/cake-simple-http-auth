@@ -1,0 +1,26 @@
+{
+  "name": "webuilder240/cake-simple-http-auth",
+  "description": "Cakephp Simple Http Auth",
+  "type": "cakephp-plugin",
+  "keywords": ["cakephp","simple","http","auth"],
+  "homepage": "https://github.com/webuilder240/cake-simple-http-auth",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Takuya Nishio",
+      "homepage": "http://webuilder240.github.io",
+      "role": "Author"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/webuilder240/cake-simple-http-auth/issues",
+    "source": "https://github.com/webuilder240/cake-simple-http-auth"
+  },
+  "require": {
+    "php": ">=5.3.0",
+    "composer/installers": "*"
+  },
+  "extra": {
+    "installer-name": "SimpleHttpAuth"
+  }
+}
